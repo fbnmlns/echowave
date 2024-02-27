@@ -1,0 +1,13 @@
+spring:
+  main:
+    web-application-type: none
+  datasource:
+    url: jdbc:mysql://localhost:33097/homeFlix
+    username: root
+    password: HomeFlix123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
