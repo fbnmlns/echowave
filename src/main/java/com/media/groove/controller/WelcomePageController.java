@@ -1,5 +1,6 @@
-package com.media.groove;
+package com.media.groove.controller;
 
+import com.media.groove.StageInitializer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import org.springframework.beans.factory.annotation.Value;
