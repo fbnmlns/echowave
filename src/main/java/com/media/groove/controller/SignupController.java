@@ -27,9 +27,6 @@ public class SignupController {
     @FXML
     public Button signupButton;
 
-    public void initialize() {
-    }
-
     public SignupController(UserService userService) {
         this.userService = userService;
     }

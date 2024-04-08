@@ -4,10 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@css/welcome-page.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.WelcomePageController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@css/welcome-page.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.WelcomePageController">
    <children>
-      <Label styleClass="home-title" layoutX="48.0" layoutY="51.0" prefHeight="73.0" prefWidth="529.0"  text="Welcome to Groove" />
-      <Button styleClass="main-button" fx:id="signUpPageButton" layoutX="118.0" layoutY="281.0" mnemonicParsing="false" onAction="#goToSignupPage" prefHeight="48.0" prefWidth="124.0" text="Sign up" />
-      <Button styleClass="main-button" fx:id="signUpPageButton1" layoutX="370.0" layoutY="281.0" mnemonicParsing="false" onAction="#goToSignupPage" prefHeight="48.0" prefWidth="124.0" text="Log in" />
+      <Label layoutX="48.0" layoutY="51.0" prefHeight="73.0" prefWidth="529.0" styleClass="home-title" text="Welcome to Groove" />
+      <Button fx:id="signUpPageButton" layoutX="201.0" layoutY="450.0" mnemonicParsing="false" onAction="#goToSignupPage" prefHeight="48.0" prefWidth="124.0" styleClass="main-button" text="Sign up" />
+      <Button fx:id="signUpPageButton1" layoutX="453.0" layoutY="450.0" mnemonicParsing="false" onAction="#goToSignupPage" prefHeight="48.0" prefWidth="124.0" styleClass="main-button" text="Log in" />
    </children>
 </AnchorPane>
