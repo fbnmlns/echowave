@@ -14,7 +14,7 @@ public class WelcomePageController {
     @FXML
     public Button signUpPageButton;
 
-    @Value("classpath:/signup.fxml")
+    @Value("classpath:/ui/signup.fxml")
     private Resource signupScreenSource;
 
     private final StageInitializer stageInitializer;
