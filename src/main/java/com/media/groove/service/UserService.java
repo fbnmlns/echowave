@@ -2,7 +2,6 @@ package com.media.groove.service;
 
 import com.media.groove.entity.User;
 import com.media.groove.repository.UserRepository;
-import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,8 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void createUser(User newUser) {
-        newUser.setPassword(passwordEncoder.encode("hola123"));
+    public void createUser(User newUser, String rawPassword) {
+        newUser.setPassword(passwordEncoder.encode(rawPassword));
         this.userRepository.save(newUser);
     }
 }

@@ -12,17 +12,21 @@ import java.io.IOException;
 @Component
 public class WelcomePageController {
     @FXML
-    public Button btnLogin;
+    public Button signUpPageButton;
 
-    @Value("classpath:/hola.fxml")
-    private Resource screenSource;
+    @Value("classpath:/signup.fxml")
+    private Resource signupScreenSource;
+
     private final StageInitializer stageInitializer;
+
+    public void initialize() {
+    }
 
     public WelcomePageController(StageInitializer stageInitializer) {
         this.stageInitializer = stageInitializer;
     }
 
-    public void go() throws IOException {
-        stageInitializer.switchScene(screenSource);
+    public void goToSignupPage() throws IOException {
+        stageInitializer.switchScene(this.signupScreenSource);
     }
 }
