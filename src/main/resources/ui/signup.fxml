@@ -13,7 +13,7 @@
       <TextField fx:id="username" layoutX="310.0" layoutY="294.0" />
       <PasswordField fx:id="password" layoutX="310.0" layoutY="352.0" />
       <Button fx:id="signupButton" layoutX="310.0" layoutY="476.0" mnemonicParsing="false" onAction="#signUp" prefHeight="33.0" prefWidth="149.0" styleClass="signup-button" text="Sign up" />
-      <Label layoutX="263.0" layoutY="79.0" prefHeight="45.0" prefWidth="275.0" styleClass="signup-title" text="Create an account" />
+      <Label layoutX="250.0" layoutY="78.0" prefHeight="46.0" prefWidth="300.0" styleClass="signup-title" text="Create your account" />
       <Label layoutX="310.0" layoutY="163.0" prefHeight="17.0" prefWidth="50.0" styleClass="input-label" text="Name" />
       <Label layoutX="310.0" layoutY="220.0" prefHeight="17.0" prefWidth="76.0" text="Last name" />
       <Label layoutX="310.0" layoutY="277.0" prefHeight="17.0" prefWidth="76.0" text="Username" />

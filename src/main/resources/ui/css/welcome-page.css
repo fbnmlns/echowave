@@ -1,15 +1,19 @@
-
 AnchorPane {
-  -fx-background-color: #00002e;
+  -fx-background-color: linear-gradient(to bottom, #00002e, #020531, #040933, #050e36, #071139);
   -fx-font-family: "Open Sans", sans-serif;
+}
+
+Pane {
+  -fx-background-color: #00002e;
 }
 
 .home-title {
   -fx-font-weight: 900;
-  -fx-font-size: 60px;
-  -fx-text-alignment: center;
+  -fx-font-size: 45px;
+  -fx-text-alignment: end;
   -fx-text-fill: #d292ff;
   -fx-font-family: "IBM Plex Mono";
+  -fx-wrap-text: true;
 }
 
 .main-button {
@@ -17,8 +21,8 @@ AnchorPane {
   -fx-font-size: 15px;
   -fx-background-color: transparent;
   -fx-cursor: hand;
-  -fx-text-fill: #E6481B;
-  -fx-border-color: #E6481B;
+  -fx-text-fill: #e6481b;
+  -fx-border-color: #e6481b;
   -fx-border-width: 2px;
   -fx-border-radius: 4px;
 }

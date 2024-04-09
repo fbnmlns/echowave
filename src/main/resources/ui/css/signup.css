@@ -17,7 +17,7 @@ TextField, PasswordField {
 TextField:focused, PasswordField:focused {
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
-    -fx-border-color: #E6481B;
+    -fx-border-color: #e6481b;
 }
 
 .input-label {
@@ -26,9 +26,9 @@ TextField:focused, PasswordField:focused {
 }
 
 .signup-button {
-    -fx-font-weight: 400;
+    -fx-font-weight: 500;
     -fx-font-size: 15px;
-    -fx-background-color: E6481B;
+    -fx-background-color: e6481b;
     -fx-cursor: hand;
     -fx-text-fill: white;
     -fx-border-radius: 4px;
