@@ -14,9 +14,9 @@ import java.io.IOException;
 
 @Component
 public class StageInitializer implements ApplicationListener<StageReadyEvent> {
-    @Value("classpath:/welcome-page.fxml")
+    @Value("classpath:/ui/welcome-page.fxml")
     private Resource screenSource;
-    private static Stage stage;
+    private Stage stage;
     private final ApplicationContext applicationContext;
 
     public StageInitializer(ApplicationContext applicationContext) {
@@ -27,12 +27,12 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
     public void onApplicationEvent(StageReadyEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(this.screenSource.getURL());
-            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setControllerFactory(this.applicationContext::getBean);
             Parent parent = fxmlLoader.load();
 
-            stage = event.getStage();
-            stage.setScene(new Scene(parent, 800, 600));
-            stage.show();
+            this.stage = event.getStage();
+            this.stage.setScene(new Scene(parent, 800, 600));
+            this.stage.show();
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -41,7 +41,8 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
 
     public void switchScene(Resource screenSource) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(screenSource.getURL());
+        fxmlLoader.setControllerFactory(this.applicationContext::getBean);
         Parent parent = fxmlLoader.load();
-        stage.getScene().setRoot(parent);
+        this.stage.getScene().setRoot(parent);
     }
 }

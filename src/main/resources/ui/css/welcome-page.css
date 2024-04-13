@@ -1,0 +1,35 @@
+AnchorPane {
+  -fx-background-color: linear-gradient(to bottom, #00002e, #020531, #040933, #050e36, #071139);
+  -fx-font-family: "Open Sans", sans-serif;
+}
+
+Pane {
+  -fx-background-color: #00002e;
+}
+
+.home-title {
+  -fx-font-weight: 400;
+  -fx-font-size: 45px;
+  -fx-text-alignment: left;
+  -fx-text-fill: #d292ff;
+  -fx-font-family: "IBM Plex Mono";
+  -fx-wrap-text: true;
+}
+
+.main-button {
+  -fx-font-weight: 400;
+  -fx-font-size: 15px;
+  -fx-background-color: transparent;
+  -fx-cursor: hand;
+  -fx-text-fill: #e6481b;
+  -fx-border-color: #e6481b;
+  -fx-border-width: 2px;
+  -fx-border-radius: 4px;
+}
+
+.main-button:hover {
+  -fx-background-color: #E6481B;
+  transition: -fx-background-color 0.4s ease;
+  -fx-text-fill: white;
+}
+
