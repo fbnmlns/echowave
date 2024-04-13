@@ -8,9 +8,9 @@ Pane {
 }
 
 .home-title {
-  -fx-font-weight: 900;
+  -fx-font-weight: 400;
   -fx-font-size: 45px;
-  -fx-text-alignment: end;
+  -fx-text-alignment: left;
   -fx-text-fill: #d292ff;
   -fx-font-family: "IBM Plex Mono";
   -fx-wrap-text: true;

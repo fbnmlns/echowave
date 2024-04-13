@@ -9,12 +9,15 @@ AnchorPane {
 }
 
 TextField, PasswordField {
-    -fx-text-fill: #2d333a;
-    -fx-border-color: #c2c8d0;
     -fx-border-radius: 4px;
 }
 
-TextField:focused, PasswordField:focused {
+.input {
+    -fx-text-fill: #2d333a;
+    -fx-border-color: #c2c8d0;
+}
+
+.input:focused {
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
     -fx-border-color: #e6481b;
@@ -37,4 +40,14 @@ TextField:focused, PasswordField:focused {
 .signup-button:hover {
     -fx-background-color: #D93C10;
     transition: -fx-background-color 0.4s ease;
+}
+
+.error {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: #dc3030;
+}
+
+.label-error {
+    -fx-text-fill: #dc3030;
 }
