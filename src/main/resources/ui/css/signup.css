@@ -31,7 +31,7 @@ TextField, PasswordField {
 .signup-button {
     -fx-font-weight: 500;
     -fx-font-size: 15px;
-    -fx-background-color: e6481b;
+    -fx-background-color: #e6481b;
     -fx-cursor: hand;
     -fx-text-fill: white;
     -fx-border-radius: 4px;
@@ -50,4 +50,18 @@ TextField, PasswordField {
 
 .label-error {
     -fx-text-fill: #dc3030;
+}
+
+.error-text {
+    -fx-text-fill: #dc3030;
+    -fx-font-size: 10px;
+    -fx-wrap-text: true;
+}
+
+.custom-spinner .bar {
+    -fx-background-color: #e6481b;
+}
+
+.custom-spinner .track {
+    -fx-background-color: transparent;
 }

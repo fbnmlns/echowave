@@ -26,7 +26,7 @@ public class WelcomePageController {
         this.stageInitializer = stageInitializer;
     }
 
-    public void goToSignupPage() throws IOException {
+    public void goToSignupPage() {
         stageInitializer.switchScene(this.signupScreenSource);
     }
 }

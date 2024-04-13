@@ -1,18 +1,22 @@
 package com.media.groove.controller;
 
+import com.media.groove.StageInitializer;
 import com.media.groove.entity.User;
 import com.media.groove.service.UserService;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
+
+import java.util.Optional;
 
 @Controller
 public class SignupController {
     private final UserService userService;
+
+    private final StageInitializer stageInitializer;
 
     @FXML
     public PasswordField password;
@@ -47,8 +51,21 @@ public class SignupController {
     @FXML
     public Label lblPasswordConfirmation;
 
-    public SignupController(UserService userService) {
+    @FXML
+    public Label lblUsernameNotAvailable;
+
+    @FXML
+    public ProgressBar spinner;
+
+    @FXML
+    public Label lblAccountCreationError;
+
+    @Value("classpath:/ui/login.fxml")
+    private Resource loginScreenSource;
+
+    public SignupController(UserService userService, StageInitializer stageInitializer) {
         this.userService = userService;
+        this.stageInitializer = stageInitializer;
     }
 
     @FXML
@@ -61,6 +78,13 @@ public class SignupController {
             newUser.setUsername(this.username.getText());
 
             this.userService.createUser(newUser, this.password.getText());
+
+            if (newUser.getId() != null) {
+                this.stageInitializer.switchScene(loginScreenSource);
+
+            } else {
+                this.lblAccountCreationError.setVisible(true);
+            }
         }
     }
 
@@ -72,6 +96,16 @@ public class SignupController {
 
             this.username.getStyleClass().add("error");
             this.lblUsername.getStyleClass().add("label-error");
+
+            isValid = false;
+
+        } else if (this.userService.isUsernameAlreadyTaken(this.username.getText())) {
+            this.username.getStyleClass().remove("input");
+
+            this.username.getStyleClass().add("error");
+            this.lblUsername.getStyleClass().add("label-error");
+
+            this.lblUsernameNotAvailable.setVisible(true);
 
             isValid = false;
         }
@@ -100,6 +134,7 @@ public class SignupController {
 
             this.password.getStyleClass().add("error");
             this.passwordConfirmation.getStyleClass().add("error");
+
             this.lblPassword.getStyleClass().add("label-error");
             this.lblPasswordConfirmation.getStyleClass().add("label-error");
 

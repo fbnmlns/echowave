@@ -19,4 +19,10 @@ public class UserService {
         newUser.setPassword(passwordEncoder.encode(rawPassword));
         this.userRepository.save(newUser);
     }
+
+    public boolean isUsernameAlreadyTaken(String username) {
+        return this.userRepository
+                .findUserByUsernameLike(username)
+                .isPresent();
+    }
 }
