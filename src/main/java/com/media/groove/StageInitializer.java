@@ -39,10 +39,15 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
         }
     }
 
-    public void switchScene(Resource screenSource) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(screenSource.getURL());
-        fxmlLoader.setControllerFactory(this.applicationContext::getBean);
-        Parent parent = fxmlLoader.load();
-        this.stage.getScene().setRoot(parent);
+    public void switchScene(Resource screenSource) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(screenSource.getURL());
+            fxmlLoader.setControllerFactory(this.applicationContext::getBean);
+            Parent parent = fxmlLoader.load();
+            this.stage.getScene().setRoot(parent);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

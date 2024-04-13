@@ -1,9 +1,6 @@
 package com.media.groove.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class User {
@@ -12,6 +9,7 @@ public class User {
     private Integer id;
     private String name;
     private String lastName;
+    @Column(unique = true)
     private String username;
     private String password;
     private String profilePicture;
