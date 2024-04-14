@@ -17,6 +17,9 @@ public class WelcomePageController {
     @Value("classpath:/ui/signup.fxml")
     private Resource signupScreenSource;
 
+    @Value("classpath:/ui/login.fxml")
+    private Resource loginScreenSource;
+
     private final StageInitializer stageInitializer;
 
     public void initialize() {
@@ -28,5 +31,9 @@ public class WelcomePageController {
 
     public void goToSignupPage() {
         stageInitializer.switchScene(this.signupScreenSource);
+    }
+
+    public void goToLoginPage() {
+        stageInitializer.switchScene(this.loginScreenSource);
     }
 }

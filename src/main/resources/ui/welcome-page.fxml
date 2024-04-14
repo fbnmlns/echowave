@@ -17,7 +17,7 @@
       <Pane layoutX="465.0" layoutY="3.0" prefHeight="594.0" prefWidth="334.0">
          <children>
             <Button fx:id="signUpPageButton" layoutX="26.0" layoutY="515.0" mnemonicParsing="false" onAction="#goToSignupPage" prefHeight="48.0" prefWidth="124.0" styleClass="main-button" text="Sign up" />
-            <Button fx:id="signUpPageButton1" layoutX="185.0" layoutY="515.0" mnemonicParsing="false" onAction="#goToSignupPage" prefHeight="48.0" prefWidth="124.0" styleClass="main-button" text="Log in" />
+            <Button fx:id="logInButton" layoutX="185.0" layoutY="515.0" mnemonicParsing="false" onAction="#goToLoginPage" prefHeight="48.0" prefWidth="124.0" styleClass="main-button" text="Log in" />
             <Label layoutX="35.0" layoutY="35.0" prefHeight="156.0" prefWidth="264.0" styleClass="home-title" text="Hi, welcome to Groove" textOverrun="CLIP" />
          </children>
       </Pane>

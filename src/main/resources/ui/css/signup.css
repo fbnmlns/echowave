@@ -57,11 +57,3 @@ TextField, PasswordField {
     -fx-font-size: 10px;
     -fx-wrap-text: true;
 }
-
-.custom-spinner .bar {
-    -fx-background-color: #e6481b;
-}
-
-.custom-spinner .track {
-    -fx-background-color: transparent;
-}
