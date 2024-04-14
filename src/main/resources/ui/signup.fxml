@@ -15,7 +15,7 @@
     </VBox>
     <VBox layoutX="310.0" layoutY="235.0">
         <Label fx:id="lblLastName" prefHeight="17.0" prefWidth="76.0" text="Last name*" />
-        <TextField fx:id="lastName" focusTraversable="false" styleClass="input" />
+        <TextField fx:id="lastName" styleClass="input" />
     </VBox>
     <VBox layoutX="310.0" layoutY="300.0">
         <Label fx:id="lblUsername" prefHeight="17.0" prefWidth="76.0" text="Username*" />
