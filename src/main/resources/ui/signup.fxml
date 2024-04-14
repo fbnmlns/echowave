@@ -32,6 +32,5 @@
         <Label fx:id="lblPasswordConfirmation" prefHeight="18.0" prefWidth="150.0" text="Confirm your password*" />
         <PasswordField fx:id="passwordConfirmation" styleClass="input" />
     </VBox>
-   <ProgressBar fx:id="spinner" layoutY="-9.0" prefHeight="18.0" prefWidth="800.0" styleClass="custom-spinner" visible="false" />
    <Label fx:id="lblAccountCreationError" styleClass="error-text" layoutX="187.0" layoutY="553.0" prefHeight="33.0" prefWidth="395.0" text="There was a problem while trying to create your account. Please try again." visible="false" />
 </AnchorPane>
