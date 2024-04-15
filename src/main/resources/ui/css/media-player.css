@@ -1,0 +1,34 @@
+AnchorPane {
+    -fx-background-color: linear-gradient(to bottom, #201f20, #2a292a, #353435, #403f40, #4c4b4c);
+}
+
+.video-screen {
+    -fx-border-radius: 5px;
+}
+
+.slider {
+    -fx-cursor: hand;
+    -fx-padding: 5px 10px;
+}
+
+.slider .track {
+    -fx-background-color: #f0f0f0;
+}
+
+.slider .thumb {
+    -fx-background-color: #f0f0f0;
+}
+
+.video-controllers-container {
+    -fx-padding: 0 0 10px 0;
+}
+
+.playback-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-border-insets: 0 0 0 15px;
+}
+
+.time {
+    -fx-text-fill: white;
+}
