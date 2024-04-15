@@ -15,23 +15,21 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 import org.springframework.stereotype.Controller;
 
-import javax.naming.Binding;
 import java.io.File;
-import java.util.Objects;
-import java.util.concurrent.Callable;
 
 @Controller
 public class MediaPlayerController {
     private MediaPlayer mediaPlayer;
 
-    private Media mediaFile;
-
     private boolean isPlaying;
 
     private boolean videoHasEnded;
 
-    private boolean isMuted;
+    public Image playIcon;
 
+    public Image pauseIcon;
+
+    public Image restartIcon;
 
     @FXML
     public VBox mainContainer;
@@ -66,38 +64,42 @@ public class MediaPlayerController {
     public MediaPlayerController() {
         this.isPlaying = true;
         this.videoHasEnded = false;
-        this.isMuted = false;
+        this.playIcon = getImage("src/main/resources/ui/assets/play.png");
+        this.pauseIcon = getImage("src/main/resources/ui/assets/pause.png");
+        this.restartIcon = getImage("src/main/resources/ui/assets/restart.png");
     }
 
     public void initialize() {
-        this.mediaFile = new Media(new File("src/main/resources/ui/assets/house.mp4").toURI().toString());
+        Media mediaFile = new Media(new File("src/main/resources/ui/assets/house.mp4").toURI().toString());
         this.mediaPlayer = new MediaPlayer(mediaFile);
         this.mediaScreen.setMediaPlayer(mediaPlayer);
 
         this.mediaPlayer.volumeProperty().bindBidirectional(this.volumeSlider.valueProperty());
         this.setVideoMaxTime();
         this.bindCurrentTimeLabel();
-        this.trackTimeSliderChanging();
-        this.trackTimeSliderPropertyChanged();
+        this.keepTrackOfVideoSliderChanging();
+        this.keepTrackOfVideoSliderValueProperty();
 
         this.mediaPlayer.play();
+
+        this.allowToRestartMedia();
     }
 
     public void playback() {
+        this.bindCurrentTimeLabel();
+
         if (this.videoHasEnded) {
             this.videoSlider.setValue(0);
-            this.mediaPlayer.pause();
+            this.isPlaying = false;
         }
 
         if (this.isPlaying) {
             this.mediaPlayer.pause();
-            Image image = getImage("src/main/resources/ui/assets/play.png");
-            this.playbackButtonIcon.setImage(image);
+            this.playbackButtonIcon.setImage(this.playIcon);
             this.isPlaying = false;
 
         } else {
-            Image pauseIcon = getImage("src/main/resources/ui/assets/pause.png");
-            this.playbackButtonIcon.setImage(pauseIcon);
+            this.playbackButtonIcon.setImage(this.pauseIcon);
             this.mediaPlayer.play();
             this.isPlaying = true;
         }
@@ -116,6 +118,8 @@ public class MediaPlayerController {
 
     private void setVideoMaxTime() {
         this.mediaPlayer.totalDurationProperty().addListener((observable, oldDuration, newDuration) -> {
+            this.bindCurrentTimeLabel();
+
             this.videoSlider.maxProperty().bind(Bindings.createDoubleBinding(
                     () -> this.mediaPlayer.getTotalDuration().toSeconds(), this.mediaPlayer.totalDurationProperty()
             ));
@@ -124,8 +128,10 @@ public class MediaPlayerController {
         });
     }
 
-    private void trackTimeSliderChanging() {
+    private void keepTrackOfVideoSliderChanging() {
         this.videoSlider.valueChangingProperty().addListener((observable, wasChanging, isChanging) -> {
+            this.bindCurrentTimeLabel();
+
             if (!isChanging) {
                 this.mediaPlayer.seek(Duration.seconds(this.videoSlider.getValue()));
             }
@@ -138,12 +144,26 @@ public class MediaPlayerController {
         });
     }
 
-    private void trackTimeSliderPropertyChanged() {
+    private void keepTrackOfVideoSliderValueProperty() {
         this.videoSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            this.bindCurrentTimeLabel();
+
             double currentTime = this.mediaPlayer.getCurrentTime().toSeconds();
 
             if (Math.abs(currentTime - newValue.doubleValue()) > 0.5) {
                 this.mediaPlayer.seek(Duration.seconds(newValue.doubleValue()));
+            }
+        });
+    }
+
+    private void allowToRestartMedia() {
+        this.mediaPlayer.setOnEndOfMedia(() -> {
+            this.playbackButtonIcon.setImage(this.restartIcon);
+            this.videoHasEnded = true;
+
+            if (!(this.lblCurrentTime.textProperty().equals(this.lblRuntime.textProperty()))) {
+                this.lblCurrentTime.textProperty().unbind();
+                this.lblCurrentTime.setText(getTime(this.mediaPlayer.getCurrentTime()) + "  /");
             }
         });
     }
