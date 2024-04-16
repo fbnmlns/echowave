@@ -1,5 +1,6 @@
 package com.media.groove.controller;
 
+import com.media.groove.session.VideoSession;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,6 +20,8 @@ import java.io.File;
 
 @Controller
 public class MediaPlayerController {
+    private final VideoSession videoSession;
+
     private MediaPlayer mediaPlayer;
 
     private boolean isPlaying;
@@ -61,7 +64,8 @@ public class MediaPlayerController {
     @FXML
     private Label lblRuntime;
 
-    public MediaPlayerController() {
+    public MediaPlayerController(VideoSession videoSession) {
+        this.videoSession = videoSession;
         this.isPlaying = true;
         this.videoHasEnded = false;
         this.playIcon = getImage("src/main/resources/ui/assets/play.png");
@@ -70,8 +74,7 @@ public class MediaPlayerController {
     }
 
     public void initialize() {
-        Media mediaFile = new Media(new File("src/main/resources/ui/assets/house.mp4").toURI().toString());
-        this.mediaPlayer = new MediaPlayer(mediaFile);
+        this.mediaPlayer = new MediaPlayer(this.getCurrentMedia());
         this.mediaScreen.setMediaPlayer(mediaPlayer);
 
         this.mediaPlayer.volumeProperty().bindBidirectional(this.volumeSlider.valueProperty());
@@ -103,10 +106,6 @@ public class MediaPlayerController {
             this.mediaPlayer.play();
             this.isPlaying = true;
         }
-    }
-
-    private Image getImage(String imagePath) {
-        return new Image(new File(imagePath).toURI().toString());
     }
 
     private void bindCurrentTimeLabel() {
@@ -191,5 +190,13 @@ public class MediaPlayerController {
         } else {
             return String.format("%02d:%02d", minutes, seconds);
         }
+    }
+
+    private Image getImage(String imagePath) {
+        return new Image(new File(imagePath).toURI().toString());
+    }
+
+    private Media getCurrentMedia() {
+        return new Media(new File(this.videoSession.getCurrentVideo().getPath()).toURI().toString());
     }
 }

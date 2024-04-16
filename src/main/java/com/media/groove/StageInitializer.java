@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @Component
 public class StageInitializer implements ApplicationListener<StageReadyEvent> {
-    @Value("classpath:/ui/media-player.fxml")
+    @Value("classpath:/ui/home.fxml")
     private Resource screenSource;
     private Stage stage;
     private final ApplicationContext applicationContext;

@@ -1,0 +1,48 @@
+AnchorPane, FlowPane {
+    -fx-background-color: #191919;
+}
+
+.media-scroll-pane {
+    -fx-background-color: #191919;
+}
+
+.media-scroll-pane:vertical .scroll-bar, .media-scroll-pane:horizontal .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: #202020;
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #535454;
+}
+
+.scroll-bar .corner {
+    -fx-background-color: #191919;
+}
+
+.scroll-bar .filler {
+    -fx-background-color: #191919;
+}
+
+.header {
+    -fx-background-color: #202020;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: #373737;
+    -fx-border-style: solid;
+}
+
+.profile-picture {
+    -fx-border-radius: 20px;
+    -fx-background-color: red;
+    -fx-border-insets: 15px;
+}
+
+.media-card {
+    -fx-cursor: hand;
+}
