@@ -197,6 +197,6 @@ public class MediaPlayerController {
     }
 
     private Media getCurrentMedia() {
-        return new Media(new File(this.videoSession.getCurrentVideo().getPath()).toURI().toString());
+        return new Media(new File(this.videoSession.getCurrentVideo().getFile()).toURI().toString());
     }
 }

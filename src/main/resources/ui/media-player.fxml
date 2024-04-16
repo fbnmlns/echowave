@@ -15,7 +15,7 @@
    <VBox fx:id="mainContainer" alignment="CENTER" layoutX="-2.0" layoutY="-2.0" prefHeight="600.0" prefWidth="800.0">
       <MediaView fx:id="mediaScreen" fitHeight="550.0" fitWidth="750.0" />
       <Slider fx:id="videoSlider" styleClass="slider" />
-      <HBox fx:id="videoControllers" alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="100.0" styleClass="video-controllers-container">
+      <HBox fx:id="videoControllers" alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="100.0" styleClass="media-controllers-container">
          <Button fx:id="playbackButton" mnemonicParsing="false" onAction="#playback" prefHeight="31.0" prefWidth="41.0" styleClass="playback-button">
             <HBox.margin>
                <Insets left="15.0" />

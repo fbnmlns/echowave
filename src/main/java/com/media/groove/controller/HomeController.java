@@ -1,21 +1,29 @@
 package com.media.groove.controller;
 
 import com.media.groove.StageInitializer;
-import com.media.groove.entity.Video;
+import com.media.groove.entity.Media;
 import com.media.groove.session.VideoSession;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.shape.Rectangle;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 
 import java.io.File;
+import java.util.ArrayList;
 
 @Controller
 public class HomeController {
+    public final int FLOW_PANE_HGAP_VALUE = 30;
+
+    public final int FLOW_PANE_VGAP_VALUE = 30;
+    
+    public final int THUMBNAIL_FIT_HEIGHT = 146;
+
+    public final int THUMBNAIL_FIT_WIDTH = 230;
+
     private final StageInitializer stageInitializer;
 
     private final VideoSession videoSession;
@@ -36,31 +44,38 @@ public class HomeController {
     }
 
     private void loadMedia() {
-        for (int i = 0; i < 100; i++) {
-            ImageView image = getImageView("src/main/resources/ui/assets/test.jpg");
-            image.setFitWidth(230);
-            image.setFitHeight(146);
-            image.getStyleClass().add("media-card");
+        ArrayList<Media> list = new ArrayList<>();
 
-            image.setOnMouseClicked(event -> {
-                Video video = new Video();
-                video.setPath("src/main/resources/ui/assets/house.mp4");
+        Media media = new Media(); //Remove once there's a user with videos
+        media.setFile("src/main/resources/ui/assets/house.mp4");
 
-                this.videoSession.setCurrentVideo(video);
+        list.add(media);
 
-                this.stageInitializer.switchScene(this.mediaPlayerScreenResource);
+        for (Media currMedia : list) {
+            ImageView thumbnail = getMediaThumbnail(currMedia.getThumbnail());
+            thumbnail.setFitWidth(this.THUMBNAIL_FIT_WIDTH);
+            thumbnail.setFitHeight(this.THUMBNAIL_FIT_HEIGHT);
+            thumbnail.getStyleClass().add("media-card");
+
+            thumbnail.setOnMouseClicked(event -> {
+                this.videoSession.setCurrentVideo(currMedia);
+                this.startPlayingMedia();
             });
 
-            this.allMediaContainer.setHgap(30);
-            this.allMediaContainer.setVgap(30);
+            this.allMediaContainer.setHgap(this.FLOW_PANE_HGAP_VALUE);
+            this.allMediaContainer.setVgap(this.FLOW_PANE_VGAP_VALUE);
 
-            this.allMediaContainer.getChildren().add(image);
+            this.allMediaContainer.getChildren().add(thumbnail);
         }
     }
 
-    private ImageView getImageView(String imagePath) {
+    private ImageView getMediaThumbnail(String imagePath) {
         Image image = new Image(new File(imagePath).toURI().toString());
 
         return new ImageView(image);
+    }
+    
+    private void startPlayingMedia() {
+        this.stageInitializer.switchScene(this.mediaPlayerScreenResource);
     }
 }
