@@ -2,22 +2,34 @@ package com.media.groove.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
+
     private String name;
+
     private String lastName;
+
     @Column(unique = true)
     private String username;
+
     private String password;
+
     private String profilePicture;
 
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
+    private List<Media> media;
+
     public User() {
+        this.media = new ArrayList<>();
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -59,5 +71,13 @@ public class User {
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public List<Media> getMedia() {
+        return media;
+    }
+
+    public void setMedia(List<Media> media) {
+        this.media = media;
     }
 }

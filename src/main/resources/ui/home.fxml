@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -7,9 +9,19 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 
-<?import javafx.geometry.Insets?>
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@css/home.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.HomeController">
+<AnchorPane prefHeight="600.0" prefWidth="777.0" stylesheets="@css/home.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.HomeController">
     <HBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="800.0" styleClass="header">
+        <ImageView onMouseClicked="#addNewVideo" styleClass="add-media-button">
+            <HBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </HBox.margin>
+            <Image url="@assets/add-video.png" />
+        </ImageView>
+      <Label fx:id="lblUsername" prefHeight="17.0" prefWidth="60.0" styleClass="username-label" text="username">
+         <HBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </HBox.margin>
+      </Label>
         <ImageView fitHeight="57.0" fitWidth="75.0" styleClass="profile-picture">
             <Image url="@assets/default-profile-picture.jpg" />
             <HBox.margin>
@@ -18,6 +30,6 @@
         </ImageView>
     </HBox>
     <ScrollPane layoutX="14.0" layoutY="86.0" prefHeight="502.0" prefWidth="773.0" styleClass="media-scroll-pane">
-        <FlowPane fx:id="allMediaContainer" prefHeight="500.0" prefWidth="758.4" rowValignment="TOP" />
+        <FlowPane fx:id="allMediaContainer" prefHeight="503.0" prefWidth="758.0" rowValignment="TOP" />
     </ScrollPane>
 </AnchorPane>

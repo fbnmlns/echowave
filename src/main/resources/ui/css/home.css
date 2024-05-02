@@ -46,3 +46,17 @@ AnchorPane, FlowPane {
 .media-card {
     -fx-cursor: hand;
 }
+
+.media-title {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+.username-label {
+    -fx-text-fill: white;
+}
+
+.add-media-button {
+    -fx-cursor: hand;
+}

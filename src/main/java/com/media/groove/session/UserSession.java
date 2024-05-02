@@ -16,6 +16,6 @@ public class UserSession {
     }
 
     public void clearSession() {
-        this.authenticatedUser = null;
+        this.authenticatedUser= null;
     }
 }

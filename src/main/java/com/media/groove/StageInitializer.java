@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @Component
 public class StageInitializer implements ApplicationListener<StageReadyEvent> {
-    @Value("classpath:/ui/home.fxml")
+    @Value("classpath:/ui/welcome-page.fxml")
     private Resource screenSource;
     private Stage stage;
     private final ApplicationContext applicationContext;
@@ -49,5 +49,13 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Scene getScene() {
+        return this.stage.getScene();
+    }
+
+    public void setStageTitle(String title) {
+        this.stage.setTitle(title);
     }
 }

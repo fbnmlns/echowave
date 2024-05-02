@@ -1,5 +1,6 @@
 package com.media.groove.controller;
 
+import com.media.groove.StageInitializer;
 import com.media.groove.session.VideoSession;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
@@ -20,6 +21,8 @@ import java.io.File;
 
 @Controller
 public class MediaPlayerController {
+    private final StageInitializer stageInitializer;
+
     private final VideoSession videoSession;
 
     private MediaPlayer mediaPlayer;
@@ -64,18 +67,21 @@ public class MediaPlayerController {
     @FXML
     private Label lblRuntime;
 
-    public MediaPlayerController(VideoSession videoSession) {
+    public MediaPlayerController(StageInitializer stageInitializer, VideoSession videoSession) {
+        this.stageInitializer = stageInitializer;
         this.videoSession = videoSession;
         this.isPlaying = true;
         this.videoHasEnded = false;
-        this.playIcon = getImage("src/main/resources/ui/assets/play.png");
-        this.pauseIcon = getImage("src/main/resources/ui/assets/pause.png");
-        this.restartIcon = getImage("src/main/resources/ui/assets/restart.png");
     }
 
     public void initialize() {
         this.mediaPlayer = new MediaPlayer(this.getCurrentMedia());
         this.mediaScreen.setMediaPlayer(mediaPlayer);
+        this.stageInitializer.setStageTitle(this.videoSession.getCurrentVideo().getTitle());
+
+        this.playIcon = getImage("src/main/resources/ui/assets/play.png");
+        this.pauseIcon = getImage("src/main/resources/ui/assets/pause.png");
+        this.restartIcon = getImage("src/main/resources/ui/assets/restart.png");
 
         this.mediaPlayer.volumeProperty().bindBidirectional(this.volumeSlider.valueProperty());
         this.setVideoMaxTime();
