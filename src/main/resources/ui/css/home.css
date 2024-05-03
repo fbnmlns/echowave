@@ -1,9 +1,11 @@
 AnchorPane, FlowPane {
-    -fx-background-color: #191919;
+    -fx-background-color: white;
 }
 
 .media-scroll-pane {
-    -fx-background-color: #191919;
+    -fx-background-color: white;
+    -fx-background-insets: 0, 1;
+    -fx-padding: 1.0;
 }
 
 .media-scroll-pane:vertical .scroll-bar, .media-scroll-pane:horizontal .scroll-bar {
@@ -11,7 +13,7 @@ AnchorPane, FlowPane {
 }
 
 .scroll-bar:vertical, .scroll-bar:horizontal {
-    -fx-background-color: #202020;
+    -fx-background-color: transparent;
 }
 
 .scroll-bar .track {
@@ -31,9 +33,9 @@ AnchorPane, FlowPane {
 }
 
 .header {
-    -fx-background-color: #202020;
-    -fx-border-width: 0 0 2px 0;
-    -fx-border-color: #373737;
+    -fx-background-color: white;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #cccccc;
     -fx-border-style: solid;
 }
 
@@ -48,13 +50,12 @@ AnchorPane, FlowPane {
 }
 
 .media-title {
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: 600;
+    -fx-text-fill: #0f0f0f;
+    -fx-font-size: 15px;
 }
 
 .username-label {
-    -fx-text-fill: white;
+    -fx-text-fill: #0f0f0f;
 }
 
 .add-media-button {

@@ -8,24 +8,20 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@css/signup.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.AddVideoController">
     <VBox layoutX="310.0" layoutY="191.0">
-        <Label fx:id="lblUsername" prefHeight="17.0" prefWidth="76.0" text="Title*" />
+        <Label fx:id="lblTitle" prefHeight="17.0" prefWidth="76.0" text="Title*" />
         <TextField fx:id="title" styleClass="input" />
     </VBox>
     <Button layoutX="311.0" layoutY="514.0" mnemonicParsing="false" onAction="#addVideo" prefHeight="33.0" prefWidth="149.0" styleClass="signup-button" text="Add video" />
     <Label layoutX="278.0" layoutY="78.0" prefHeight="46.0" prefWidth="244.0" styleClass="signup-title" text="Add a new video" textAlignment="CENTER" />
-    <Label fx:id="lblWrongCredentials" layoutX="251.0" layoutY="553.0" prefHeight="33.0" prefWidth="270.0" styleClass="error-text" text="Could not find user with those credentials. Please try again." visible="false" />
-   <VBox layoutX="310.0" layoutY="268.0">
-      <children>
-         <Label fx:id="lblUsername1" prefHeight="17.0" prefWidth="76.0" text="Select file*" />
-         <TextField fx:id="videoOrAudio" styleClass="input" />
-      </children>
-   </VBox>
-   <VBox layoutX="310.0" layoutY="339.0">
-      <children>
-         <Label fx:id="lblUsername2" prefHeight="18.0" prefWidth="113.0" text="Choose thumbnail*" />
-         <TextField fx:id="thumbnail" styleClass="input" />
-      </children>
-   </VBox>
+    <Label fx:id="lblAddingVideoError" layoutX="251.0" layoutY="553.0" prefHeight="33.0" prefWidth="270.0" styleClass="error-text" text="Something went wrong while trying to add this file. Please try again." visible="false" />
+    <VBox layoutX="310.0" layoutY="268.0">
+        <Label fx:id="lblVideoOrAudioPath" prefHeight="17.0" prefWidth="76.0" text="Select file*" />
+        <TextField fx:id="videoOrAudioPath" editable="false" styleClass="input" />
+    </VBox>
+    <VBox layoutX="310.0" layoutY="339.0">
+        <Label fx:id="lblThumbnailPath" prefHeight="18.0" prefWidth="113.0" text="Choose thumbnail*" />
+        <TextField fx:id="thumbnailPath" editable="false" styleClass="input" />
+    </VBox>
    <Button alignment="CENTER" contentDisplay="CENTER" layoutX="469.0" layoutY="353.0" mnemonicParsing="false" onAction="#chooseImageFile" prefHeight="8.0" prefWidth="42.0" styleClass="signup-button" text=". . ." textAlignment="CENTER" />
-   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="469.0" layoutY="284.0" mnemonicParsing="false" onAction="#chooseVideoOrAudioFile" prefHeight="18.0" prefWidth="42.0" styleClass="signup-button" text=". . ." textAlignment="CENTER" />
+   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="469.0" layoutY="284.0" mnemonicParsing="false" onAction="#chooseVideoOrAudioFile" prefHeight="31.0" prefWidth="42.0" styleClass="signup-button" text=". . ." textAlignment="CENTER" />
 </AnchorPane>

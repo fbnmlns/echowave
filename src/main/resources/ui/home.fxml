@@ -29,7 +29,7 @@
             </HBox.margin>
         </ImageView>
     </HBox>
-    <ScrollPane layoutX="14.0" layoutY="86.0" prefHeight="502.0" prefWidth="773.0" styleClass="media-scroll-pane">
+    <ScrollPane layoutX="14.0" layoutY="86" prefHeight="502" prefWidth="773" styleClass="media-scroll-pane">
         <FlowPane fx:id="allMediaContainer" prefHeight="503.0" prefWidth="758.0" rowValignment="TOP" />
     </ScrollPane>
 </AnchorPane>

@@ -4,6 +4,7 @@ import com.media.groove.StageInitializer;
 import com.media.groove.entity.Media;
 import com.media.groove.service.MediaService;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,11 +21,24 @@ public class AddVideoController {
 
     @FXML
     public TextField title;
-    @FXML
-    public TextField thumbnail;
 
     @FXML
-    public TextField videoOrAudio;
+    public TextField thumbnailPath;
+
+    @FXML
+    public TextField videoOrAudioPath;
+
+    @FXML
+    public Label lblTitle;
+
+    @FXML
+    public Label lblVideoOrAudioPath;
+
+    @FXML
+    public Label lblThumbnailPath;
+
+    @FXML
+    public Label lblAddingVideoError;
 
     @Value("classpath:/ui/home.fxml")
     private Resource homeScreenSource;
@@ -39,8 +53,8 @@ public class AddVideoController {
 
         if (this.mediaInformationIsValid()) {
             newMedia.setTitle(this.title.getText());
-            newMedia.setFile(this.videoOrAudio.getText());
-            newMedia.setThumbnail(this.thumbnail.getText());
+            newMedia.setFile(this.videoOrAudioPath.getText());
+            newMedia.setThumbnail(this.thumbnailPath.getText());
 
             this.mediaService.createMedia(newMedia);
 
@@ -48,7 +62,7 @@ public class AddVideoController {
                 this.stageInitializer.switchScene(this.homeScreenSource);
 
             } else {
-                //this.lblAccountCreationError.setVisible(true);
+                this.lblAddingVideoError.setVisible(true);
             }
         }
     }
@@ -62,7 +76,7 @@ public class AddVideoController {
         File file = fileChooser.showOpenDialog(this.stageInitializer.getScene().getWindow());
 
         if (file != null) {
-            this.thumbnail.setText(file.getAbsolutePath());
+            this.thumbnailPath.setText(file.getAbsolutePath());
         }
     }
 
@@ -75,11 +89,40 @@ public class AddVideoController {
         File file = fileChooser.showOpenDialog(this.stageInitializer.getScene().getWindow());
 
         if (file != null) {
-            this.videoOrAudio.setText(file.getAbsolutePath());
+            this.videoOrAudioPath.setText(file.getAbsolutePath());
         }
     }
 
     private boolean mediaInformationIsValid() {
-        return true;
+        boolean isValid = true;
+
+        if (this.title.getText().isEmpty()) {
+            this.title.getStyleClass().remove("input");
+
+            this.title.getStyleClass().add("error");
+            this.lblTitle.getStyleClass().add("label-error");
+
+            isValid = false;
+        }
+
+        if (this.videoOrAudioPath.getText().isEmpty()) {
+            this.videoOrAudioPath.getStyleClass().remove("input");
+
+            this.videoOrAudioPath.getStyleClass().add("error");
+            this.lblVideoOrAudioPath.getStyleClass().add("label-error");
+
+            isValid = false;
+        }
+
+        if (this.thumbnailPath.getText().isEmpty()) {
+            this.thumbnailPath.getStyleClass().remove("input");
+
+            this.thumbnailPath.getStyleClass().add("error");
+            this.lblThumbnailPath.getStyleClass().add("label-error");
+
+            isValid = false;
+        }
+
+        return isValid;
     }
 }
