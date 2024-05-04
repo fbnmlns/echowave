@@ -7,24 +7,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="mainAnchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@css/signup.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.LoginController">
-   <children>
-      <VBox layoutX="310.0" layoutY="163.0" />
-      <VBox layoutX="310.0" layoutY="235.0" />
-      <VBox layoutX="310.0" layoutY="191.0">
-         <children>
-            <Label fx:id="lblUsername" prefHeight="17.0" prefWidth="76.0" text="Username*" />
-            <TextField fx:id="username" styleClass="input" />
-         </children>
-      </VBox>
-      <VBox layoutX="309.0" layoutY="256.0">
-         <children>
-            <Label fx:id="lblPassword" prefHeight="17.0" prefWidth="76.0" text="Password*" />
-            <PasswordField fx:id="password" styleClass="input" />
-         </children>
-      </VBox>
-      <Button fx:id="logInButton" layoutX="311.0" layoutY="514.0" mnemonicParsing="false" onAction="#logIn" prefHeight="33.0" prefWidth="149.0" styleClass="signup-button" text="Log in" />
-      <Label layoutX="223.0" layoutY="78.0" prefHeight="46.0" prefWidth="355.0" styleClass="signup-title" text="Good to have you here!" />
-      <Label fx:id="lblWrongCredentials" layoutX="251.0" layoutY="553.0" prefHeight="33.0" prefWidth="270.0" styleClass="error-text" text="Could not find user with those credentials. Please try again." visible="false" />
-   </children>
+<?import java.net.URL?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.media.groove.controller.LoginController">
+    <stylesheets>
+        <URL value="@css/signup.css"/>
+        <URL value="@css/fonts.css"/>
+    </stylesheets>
+    <VBox layoutX="310.0" layoutY="163.0"/>
+    <VBox layoutX="310.0" layoutY="235.0"/>
+    <VBox layoutX="310.0" layoutY="191.0">
+        <Label fx:id="lblUsername" prefHeight="17.0" prefWidth="76.0" text="Username*"/>
+        <TextField fx:id="username" styleClass="input"/>
+    </VBox>
+    <VBox layoutX="309.0" layoutY="256.0">
+        <Label fx:id="lblPassword" prefHeight="17.0" prefWidth="76.0" text="Password*"/>
+        <PasswordField fx:id="password" styleClass="input"/>
+    </VBox>
+    <Button layoutX="311.0" layoutY="514.0" mnemonicParsing="false" onAction="#logIn"
+            prefHeight="33.0" prefWidth="149.0" styleClass="signup-button" text="Log in"/>
+    <Label layoutX="223.0" layoutY="78.0" prefHeight="46.0" prefWidth="355.0" styleClass="signup-title"
+           text="Good to have you here!"/>
+    <Label fx:id="lblWrongCredentials" layoutX="251.0" layoutY="553.0" prefHeight="33.0" prefWidth="270.0"
+           styleClass="error-text" text="Could not find user with those credentials. Please try again."
+           visible="false"/>
 </AnchorPane>

@@ -1,6 +1,5 @@
 AnchorPane {
   -fx-background-color: linear-gradient(to bottom, #00002e, #020531, #040933, #050e36, #071139);
-  -fx-font-family: "Open Sans", sans-serif;
 }
 
 Pane {
@@ -9,16 +8,17 @@ Pane {
 
 .home-title {
   -fx-font-weight: 400;
-  -fx-font-size: 45px;
+  -fx-font-size: 43px;
   -fx-text-alignment: left;
   -fx-text-fill: #d292ff;
-  -fx-font-family: "IBM Plex Mono";
+  -fx-font-family: "Roboto Mono SemiBold";
   -fx-wrap-text: true;
 }
 
 .main-button {
   -fx-font-weight: 400;
   -fx-font-size: 15px;
+  -fx-font-family: "Poppins Regular";
   -fx-background-color: transparent;
   -fx-cursor: hand;
   -fx-text-fill: #e6481b;
@@ -29,7 +29,7 @@ Pane {
 
 .main-button:hover {
   -fx-background-color: #E6481B;
-  transition: -fx-background-color 0.4s ease;
+  transition: -fx-background-color 0.3s ease;
   -fx-text-fill: white;
 }
 
