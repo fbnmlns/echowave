@@ -15,6 +15,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 
 import java.io.File;
@@ -67,6 +69,9 @@ public class MediaPlayerController {
     @FXML
     private Label lblRuntime;
 
+    @Value("classpath:/ui/home.fxml")
+    private Resource homeScreenSource;
+
     public MediaPlayerController(StageInitializer stageInitializer, VideoSession videoSession) {
         this.stageInitializer = stageInitializer;
         this.videoSession = videoSession;
@@ -112,6 +117,13 @@ public class MediaPlayerController {
             this.mediaPlayer.play();
             this.isPlaying = true;
         }
+    }
+
+    public void closeMediaPlayer() {
+        this.mediaPlayer.stop();
+        this.videoSession.clearCurrentVideo();
+        this.stageInitializer.setStageTitle("Home");
+        this.stageInitializer.switchScene(this.homeScreenSource);
     }
 
     private void bindCurrentTimeLabel() {

@@ -7,6 +7,7 @@ import com.media.groove.session.UserSession;
 import com.media.groove.session.VideoSession;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
@@ -37,19 +38,29 @@ public class HomeController {
 
     private final UserSession userSession;
 
-    @Value("classpath:/ui/media-player.fxml")
-    private Resource mediaPlayerScreenResource;
-
-    @Value("classpath:/ui/add-video-form.fxml")
-    private Resource addNewVideoScreenResource;
-
     @FXML
     public FlowPane allMediaContainer;
 
     @FXML
     public Circle profilePicture;
 
-    public HomeController(StageInitializer stageInitializer, MediaService mediaService, VideoSession videoSession, UserSession userSession) {
+    @FXML
+    public MenuButton sessionMenu;
+
+    @Value("classpath:/ui/media-player.fxml")
+    private Resource mediaPlayerScreenResource;
+
+    @Value("classpath:/ui/add-video-form.fxml")
+    private Resource addNewVideoScreenResource;
+
+    @Value("classpath:/ui/welcome-page.fxml")
+    private Resource welcomeScreenSource;
+
+    public HomeController(
+            StageInitializer stageInitializer,
+            MediaService mediaService,
+            VideoSession videoSession,
+            UserSession userSession) {
         this.stageInitializer = stageInitializer;
         this.mediaService = mediaService;
         this.videoSession = videoSession;
@@ -61,6 +72,16 @@ public class HomeController {
         this.allMediaContainer.setVgap(this.FLOW_PANE_VGAP_VALUE);
         this.setUserProfilePicture();
         this.loadMedia();
+    }
+
+    public void addMedia() {
+        this.stageInitializer.switchScene(this.addNewVideoScreenResource);
+    }
+
+    public void signOut() {
+        this.sessionMenu.hide();
+        this.userSession.clearSession();
+        this.stageInitializer.switchScene(this.welcomeScreenSource);
     }
 
     private void loadMedia() {
@@ -105,9 +126,5 @@ public class HomeController {
 
     private void startPlayingMedia() {
         this.stageInitializer.switchScene(this.mediaPlayerScreenResource);
-    }
-
-    public void addMedia() {
-        this.stageInitializer.switchScene(this.addNewVideoScreenResource);
     }
 }

@@ -58,3 +58,9 @@ TextField, PasswordField {
     -fx-font-size: 10px;
     -fx-wrap-text: true;
 }
+
+.go-back-button {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+}

@@ -3,14 +3,11 @@ package com.media.groove.controller;
 import com.media.groove.StageInitializer;
 import com.media.groove.entity.User;
 import com.media.groove.service.UserService;
-import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
-
-import java.util.Optional;
 
 @Controller
 public class SignupController {
@@ -55,13 +52,13 @@ public class SignupController {
     public Label lblUsernameNotAvailable;
 
     @FXML
-    public ProgressBar spinner;
-
-    @FXML
     public Label lblAccountCreationError;
 
     @Value("classpath:/ui/login.fxml")
     private Resource loginScreenSource;
+
+    @Value("classpath:/ui/welcome-page.fxml")
+    private Resource welcomeScreenSource;
 
     public SignupController(UserService userService, StageInitializer stageInitializer) {
         this.userService = userService;
@@ -80,12 +77,16 @@ public class SignupController {
             this.userService.createUser(newUser, this.password.getText());
 
             if (newUser.getId() != null) {
-                this.stageInitializer.switchScene(loginScreenSource);
+                this.stageInitializer.switchScene(this.loginScreenSource);
 
             } else {
                 this.lblAccountCreationError.setVisible(true);
             }
         }
+    }
+
+    public void goBack() {
+        this.stageInitializer.switchScene(this.welcomeScreenSource);
     }
 
     private boolean signUpInformationIsValid() {

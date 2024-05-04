@@ -11,9 +11,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" stylesheets="@css/media-player.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.MediaPlayerController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" stylesheets="@css/media-player.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.MediaPlayerController">
    <VBox fx:id="mainContainer" alignment="CENTER" layoutX="-2.0" layoutY="-2.0" prefHeight="600.0" prefWidth="800.0">
-      <MediaView fx:id="mediaScreen" fitHeight="550.0" fitWidth="750.0" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <Button mnemonicParsing="false" onAction="#closeMediaPlayer" styleClass="close-mediaplayer-button">
+            <graphic>
+               <ImageView>
+                  <Image url="@assets/images/close.png" />
+               </ImageView>
+            </graphic>
+            <HBox.margin>
+               <Insets left="5.0" top="5.0" />
+            </HBox.margin>
+         </Button>
+      </HBox>
+      <MediaView fx:id="mediaScreen" fitHeight="500.0" fitWidth="750.0" />
       <Slider fx:id="videoSlider" styleClass="slider" />
       <HBox fx:id="videoControllers" alignment="CENTER_LEFT" prefHeight="12.0" prefWidth="774.0" styleClass="media-controllers-container">
          <Button fx:id="playbackButton" mnemonicParsing="false" onAction="#playback" prefHeight="31.0" prefWidth="41.0" styleClass="playback-button">
@@ -33,7 +45,7 @@
             <Label>
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="20.0">
-                     <Image url="@assets/images/volume.png"/>
+                     <Image url="@assets/images/volume.png" />
                   </ImageView>
                </graphic></Label>
             <Slider fx:id="volumeSlider" max="1.0" prefHeight="13.0" prefWidth="118.0" />
