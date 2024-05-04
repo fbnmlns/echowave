@@ -36,10 +36,10 @@ public class AddVideoController {
     public Label lblTitle;
 
     @FXML
-    public Label lblVideoOrAudioPath;
+    public Label lblVideoPathError;
 
     @FXML
-    public Label lblThumbnailPath;
+    public Label lblThumbnailPathError;
 
     @FXML
     public Label lblAddingVideoError;
@@ -118,8 +118,7 @@ public class AddVideoController {
         if (this.videoFileName.getText().isEmpty()) {
             this.videoFileName.getStyleClass().remove("input");
 
-            this.videoFileName.getStyleClass().add("error");
-            this.lblVideoOrAudioPath.getStyleClass().add("label-error");
+            this.lblVideoPathError.setVisible(true);
 
             isValid = false;
         }
@@ -127,8 +126,7 @@ public class AddVideoController {
         if (this.thumbnailFileName.getText().isEmpty()) {
             this.thumbnailFileName.getStyleClass().remove("input");
 
-            this.thumbnailFileName.getStyleClass().add("error");
-            this.lblThumbnailPath.getStyleClass().add("label-error");
+            this.lblThumbnailPathError.setVisible(true);
 
             isValid = false;
         }

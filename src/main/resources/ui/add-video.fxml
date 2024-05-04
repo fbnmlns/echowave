@@ -16,79 +16,89 @@
         <URL value="@css/forms.css" />
         <URL value="@css/fonts.css" />
     </stylesheets>
-    <Button layoutX="311.0" layoutY="514.0" mnemonicParsing="false" onAction="#addVideo" prefHeight="33.0" prefWidth="149.0" styleClass="signup-button" text="UPLOAD" />
+    <Button layoutX="311.0" layoutY="514.0" mnemonicParsing="false" onAction="#addVideo" prefHeight="33.0" prefWidth="149.0" styleClass="signup-button" text="Upload" />
     <Label layoutX="269.0" layoutY="78.0" prefHeight="46.0" prefWidth="239.0" styleClass="signup-title" text="Upload a video" textAlignment="CENTER" />
     <Label fx:id="lblAddingVideoError" layoutX="251.0" layoutY="553.0" prefHeight="33.0" prefWidth="270.0" styleClass="error-text" text="Something went wrong while trying to add this file. Please try again." visible="false" />
     <VBox layoutX="310.0" layoutY="268.0" />
     <VBox layoutX="310.0" layoutY="339.0" />
-   <Button layoutX="38.0" layoutY="34.0" mnemonicParsing="false" onAction="#goBack" styleClass="go-back-button">
-      <graphic>
-          <ImageView>
-              <Image url="@assets/images/back.png" />
-          </ImageView>
-      </graphic>
-   </Button>
-   <VBox alignment="TOP_CENTER" layoutX="298.0" layoutY="197.0" prefHeight="249.0" prefWidth="182.0">
-      <VBox>
-         <Label fx:id="lblTitle" prefHeight="17.0" prefWidth="98.0" text="Title (required)" />
-         <TextField fx:id="title" prefHeight="27.0" prefWidth="157.0" styleClass="input">
+    <Button layoutX="38.0" layoutY="34.0" mnemonicParsing="false" onAction="#goBack" styleClass="go-back-button">
+        <graphic>
+            <ImageView>
+                <Image url="@assets/images/back.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <VBox alignment="TOP_CENTER" layoutX="298.0" layoutY="197.0" prefHeight="249.0" prefWidth="182.0">
+        <VBox>
+            <Label fx:id="lblTitle" prefHeight="17.0" prefWidth="98.0" styleClass="input-label" text="Title*" />
+            <TextField fx:id="title" prefHeight="27.0" prefWidth="157.0" styleClass="input">
+                <VBox.margin>
+                    <Insets bottom="20.0" />
+                </VBox.margin>
+            </TextField>
+        </VBox>
+        <VBox>
+            <Button mnemonicParsing="false" onAction="#chooseVideoFile" prefHeight="37.0" prefWidth="182.0" styleClass="file-chooser-button" text="SELECT VIDEO FILE">
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </Button>
+            <Label fx:id="lblVideoPathError" prefHeight="17.0" prefWidth="179.0" styleClass="error-text" text="Please select a video file" visible="false">
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </Label>
+        </VBox>
+        <VBox>
+            <Button mnemonicParsing="false" onAction="#chooseImageFile" prefHeight="37.0" prefWidth="182.0" styleClass="file-chooser-button" text="SELECT THUMBNAIL">
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </Button>
+            <Label fx:id="lblThumbnailPathError" prefHeight="17.0" prefWidth="179.0" styleClass="error-text" text="Please select a thumbnail" visible="false" />
+        </VBox>
+    </VBox>
+    <VBox alignment="TOP_CENTER" layoutX="508.0" layoutY="217.0" prefHeight="103.0" prefWidth="277.0" styleClass="video-details-container">
+        <Label prefHeight="17.0" prefWidth="83.0" styleClass="video-details-title" text="Video details">
             <VBox.margin>
-               <Insets bottom="20.0" top="10.0" />
+                <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
-         </TextField>
-      </VBox>
-      <Button mnemonicParsing="false" onAction="#chooseVideoFile" prefHeight="37.0" prefWidth="182.0" styleClass="file-chooser-button" text="SELECT VIDEO FILE">
-         <VBox.margin>
-            <Insets bottom="20.0" top="20.0" />
-         </VBox.margin>
-      </Button>
-      <Button mnemonicParsing="false" onAction="#chooseImageFile" prefHeight="37.0" prefWidth="182.0" styleClass="file-chooser-button" text="SELECT THUMBNAIL">
-         <VBox.margin>
-            <Insets bottom="20.0" top="20.0" />
-         </VBox.margin>
-      </Button>
-   </VBox>
-   <VBox alignment="TOP_CENTER" layoutX="508.0" layoutY="217.0" prefHeight="103.0" prefWidth="277.0" styleClass="video-details-container">
-      <Label prefHeight="17.0" prefWidth="83.0" styleClass="video-details-title" text="Video details">
-         <VBox.margin>
-            <Insets bottom="10.0" top="10.0" />
-         </VBox.margin>
-      </Label>
-      <HBox prefHeight="17.0" prefWidth="168.0">
-         <Label prefHeight="27.0" prefWidth="112.0" styleClass="video-details-label" text="Video file name:">
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-            </padding>
-            <HBox.margin>
-               <Insets left="5.0" />
-            </HBox.margin>
-         </Label>
-         <Label fx:id="videoFileName" prefHeight="27.0" prefWidth="154.0">
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-            </padding>
-            <HBox.margin>
-               <Insets right="5.0" />
-            </HBox.margin>
-         </Label>
-      </HBox>
-      <HBox prefHeight="17.0" prefWidth="168.0">
-         <Label prefHeight="27.0" prefWidth="158.0" styleClass="video-details-label" text="Thumbail file name:">
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-            </padding>
-            <HBox.margin>
-               <Insets left="5.0" />
-            </HBox.margin>
-         </Label>
-         <Label fx:id="thumbnailFileName" prefHeight="27.0" prefWidth="154.0">
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-            </padding>
-            <HBox.margin>
-               <Insets right="5.0" />
-            </HBox.margin>
-         </Label>
-      </HBox>
-   </VBox>
+        </Label>
+        <HBox prefHeight="17.0" prefWidth="168.0">
+            <Label prefHeight="27.0" prefWidth="112.0" styleClass="video-details-label" text="Video file name:">
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+                <HBox.margin>
+                    <Insets left="5.0" />
+                </HBox.margin>
+            </Label>
+            <Label fx:id="videoFileName" prefHeight="27.0" prefWidth="154.0">
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+                <HBox.margin>
+                    <Insets right="5.0" />
+                </HBox.margin>
+            </Label>
+        </HBox>
+        <HBox prefHeight="17.0" prefWidth="168.0">
+            <Label prefHeight="27.0" prefWidth="158.0" styleClass="video-details-label" text="Thumbail file name:">
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+                <HBox.margin>
+                    <Insets left="5.0" />
+                </HBox.margin>
+            </Label>
+            <Label fx:id="thumbnailFileName" prefHeight="27.0" prefWidth="154.0">
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+                <HBox.margin>
+                    <Insets right="5.0" />
+                </HBox.margin>
+            </Label>
+        </HBox>
+    </VBox>
 </AnchorPane>

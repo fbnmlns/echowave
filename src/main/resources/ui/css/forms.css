@@ -28,11 +28,10 @@ TextField, PasswordField {
 .input-label {
     -fx-text-fill: #444746;
     -fx-font-size: 12px;
-    -fx-font-weight: 400;
+    -fx-font-family: "Poppins Medium";
 }
 
 .signup-button {
-    -fx-font-weight: 500;
     -fx-font-size: 15px;
     -fx-background-color: #e6481b;
     -fx-cursor: hand;
@@ -93,5 +92,5 @@ TextField, PasswordField {
 }
 
 .video-details-title, .video-details-label {
-    -fx-font-family: "Poppins SemiBold";
+    -fx-font-family: "Poppins Medium";
 }
