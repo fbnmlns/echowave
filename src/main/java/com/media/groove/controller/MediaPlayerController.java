@@ -84,9 +84,9 @@ public class MediaPlayerController {
         this.mediaScreen.setMediaPlayer(mediaPlayer);
         this.stageInitializer.setStageTitle(this.videoSession.getCurrentVideo().getTitle());
 
-        this.playIcon = getImage("src/main/resources/ui/assets/play.png");
-        this.pauseIcon = getImage("src/main/resources/ui/assets/pause.png");
-        this.restartIcon = getImage("src/main/resources/ui/assets/restart.png");
+        this.playIcon = getImage("src/main/resources/ui/assets/images/play.png");
+        this.pauseIcon = getImage("src/main/resources/ui/assets/images/pause.png");
+        this.restartIcon = getImage("src/main/resources/ui/assets/images/restart.png");
 
         this.mediaPlayer.volumeProperty().bindBidirectional(this.volumeSlider.valueProperty());
         this.setVideoMaxTime();
@@ -129,8 +129,8 @@ public class MediaPlayerController {
     private void bindCurrentTimeLabel() {
         this.lblCurrentTime
                 .textProperty()
-                .bind(Bindings
-                        .createStringBinding(() -> getTime(this.mediaPlayer.getCurrentTime()) + "  /", this.mediaPlayer.currentTimeProperty()));
+                .bind(Bindings.createStringBinding(() ->
+                        getTime(this.mediaPlayer.getCurrentTime()) + "  /", this.mediaPlayer.currentTimeProperty()));
     }
 
     private void setVideoMaxTime() {
