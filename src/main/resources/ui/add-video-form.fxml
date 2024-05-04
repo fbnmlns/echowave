@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -29,4 +31,11 @@
     </VBox>
    <Button alignment="CENTER" contentDisplay="CENTER" layoutX="469.0" layoutY="353.0" mnemonicParsing="false" onAction="#chooseImageFile" prefHeight="8.0" prefWidth="42.0" styleClass="signup-button" text=". . ." textAlignment="CENTER" />
    <Button alignment="CENTER" contentDisplay="CENTER" layoutX="469.0" layoutY="284.0" mnemonicParsing="false" onAction="#chooseVideoOrAudioFile" prefHeight="31.0" prefWidth="42.0" styleClass="signup-button" text=". . ." textAlignment="CENTER" />
+   <Button styleClass="go-back-button" layoutX="38.0" layoutY="34.0" mnemonicParsing="false" onAction="#goBack">
+      <graphic>
+          <ImageView>
+              <Image url="@assets/images/back.png"/>
+          </ImageView>
+      </graphic>
+   </Button>
 </AnchorPane>

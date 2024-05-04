@@ -14,4 +14,8 @@ public class VideoSession {
     public void setCurrentVideo(Media currentMedia) {
         this.currentMedia = currentMedia;
     }
+
+    public void clearCurrentVideo() {
+        this.currentMedia = null;
+    }
 }

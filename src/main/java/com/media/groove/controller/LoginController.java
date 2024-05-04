@@ -35,6 +35,9 @@ public class LoginController {
     @Value("classpath:/ui/home.fxml")
     private Resource homeScreenSource;
 
+    @Value("classpath:/ui/welcome-page.fxml")
+    private Resource welcomeScreenSource;
+
     public LoginController(AuthenticationService authenticationService, StageInitializer stageInitializer) {
         this.authenticationService = authenticationService;
         this.stageInitializer = stageInitializer;
@@ -44,12 +47,16 @@ public class LoginController {
     public void logIn() {
         if (this.logInInformationIsValid()) {
             if (this.authenticationService.authenticate(this.username.getText(), this.password.getText())) {
-                this.stageInitializer.switchScene(homeScreenSource);
+                this.stageInitializer.switchScene(this.homeScreenSource);
                 
             } else {
                 this.indicateCredentialsAreWrong();
             }
         }
+    }
+
+    public void goBack() {
+        this.stageInitializer.switchScene(this.welcomeScreenSource);
     }
 
     private void indicateCredentialsAreWrong() {

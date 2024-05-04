@@ -59,8 +59,28 @@ AnchorPane, FlowPane {
     -fx-text-fill: #0f0f0f;
 }
 
-.add-media-button {
+.add-media-button, .menu-button {
     -fx-background-color: transparent;
     -fx-border-width: 0;
     -fx-cursor: hand;
+}
+
+.menu-button > .arrow-button {
+    -fx-padding: 0;
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
+
+.menu-item .label {
+    -fx-text-fill: #0f0f0f;
+}
+
+.menu-item:focused {
+    -fx-background-color: #f2f2f2;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: #0f0f0f;
 }

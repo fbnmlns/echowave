@@ -93,6 +93,10 @@ public class AddVideoController {
         }
     }
 
+    public void goBack() {
+        this.stageInitializer.switchScene(this.homeScreenSource);
+    }
+
     private boolean mediaInformationIsValid() {
         boolean isValid = true;
 
