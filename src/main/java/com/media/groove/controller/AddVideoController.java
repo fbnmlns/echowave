@@ -19,14 +19,18 @@ public class AddVideoController {
 
     private final MediaService mediaService;
 
+    private String videoPath;
+
+    private String thumbnailPath;
+
     @FXML
     public TextField title;
 
     @FXML
-    public TextField thumbnailPath;
+    public Label thumbnailFileName;
 
     @FXML
-    public TextField videoOrAudioPath;
+    public Label videoFileName;
 
     @FXML
     public Label lblTitle;
@@ -53,8 +57,8 @@ public class AddVideoController {
 
         if (this.mediaInformationIsValid()) {
             newMedia.setTitle(this.title.getText());
-            newMedia.setFile(this.videoOrAudioPath.getText());
-            newMedia.setThumbnail(this.thumbnailPath.getText());
+            newMedia.setFile(this.getVideoPath());
+            newMedia.setThumbnail(this.getThumbnailPath());
 
             this.mediaService.createMedia(newMedia);
 
@@ -67,6 +71,20 @@ public class AddVideoController {
         }
     }
 
+    public void chooseVideoFile() {
+        FileChooser fileChooser = new FileChooser();
+
+        fileChooser.setTitle("Open Resource File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Video File", "*.mp4"));
+
+        File file = fileChooser.showOpenDialog(this.stageInitializer.getScene().getWindow());
+
+        if (file != null) {
+            this.setVideoPath(file.getAbsolutePath());
+            this.videoFileName.setText(file.getName());
+        }
+    }
+
     public void chooseImageFile() {
         FileChooser fileChooser = new FileChooser();
 
@@ -76,20 +94,8 @@ public class AddVideoController {
         File file = fileChooser.showOpenDialog(this.stageInitializer.getScene().getWindow());
 
         if (file != null) {
-            this.thumbnailPath.setText(file.getAbsolutePath());
-        }
-    }
-
-    public void chooseVideoOrAudioFile() {
-        FileChooser fileChooser = new FileChooser();
-
-        fileChooser.setTitle("Open Resource File");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Media File", "*.mp4", "*.mp3"));
-
-        File file = fileChooser.showOpenDialog(this.stageInitializer.getScene().getWindow());
-
-        if (file != null) {
-            this.videoOrAudioPath.setText(file.getAbsolutePath());
+            this.setThumbnailPath(file.getAbsolutePath());
+            this.thumbnailFileName.setText(file.getName());
         }
     }
 
@@ -109,24 +115,40 @@ public class AddVideoController {
             isValid = false;
         }
 
-        if (this.videoOrAudioPath.getText().isEmpty()) {
-            this.videoOrAudioPath.getStyleClass().remove("input");
+        if (this.videoFileName.getText().isEmpty()) {
+            this.videoFileName.getStyleClass().remove("input");
 
-            this.videoOrAudioPath.getStyleClass().add("error");
+            this.videoFileName.getStyleClass().add("error");
             this.lblVideoOrAudioPath.getStyleClass().add("label-error");
 
             isValid = false;
         }
 
-        if (this.thumbnailPath.getText().isEmpty()) {
-            this.thumbnailPath.getStyleClass().remove("input");
+        if (this.thumbnailFileName.getText().isEmpty()) {
+            this.thumbnailFileName.getStyleClass().remove("input");
 
-            this.thumbnailPath.getStyleClass().add("error");
+            this.thumbnailFileName.getStyleClass().add("error");
             this.lblThumbnailPath.getStyleClass().add("label-error");
 
             isValid = false;
         }
 
         return isValid;
+    }
+
+    private String getVideoPath() {
+        return videoPath;
+    }
+
+    private void setVideoPath(String videoPath) {
+        this.videoPath = videoPath;
+    }
+
+    private String getThumbnailPath() {
+        return thumbnailPath;
+    }
+
+    private void setThumbnailPath(String thumbnailPath) {
+        this.thumbnailPath = thumbnailPath;
     }
 }

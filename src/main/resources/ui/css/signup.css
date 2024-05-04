@@ -15,7 +15,7 @@ TextField, PasswordField {
 
 .input {
     -fx-text-fill: #2d333a;
-    -fx-border-color: #c2c8d0;
+    -fx-border-color: #cccccc;
 }
 
 .input:focused {
@@ -25,6 +25,7 @@ TextField, PasswordField {
 }
 
 .input-label {
+    -fx-text-fill: #606060;
     -fx-font-size: 12px;
     -fx-font-weight: 400;
 }
@@ -41,6 +42,24 @@ TextField, PasswordField {
 .signup-button:hover {
     -fx-background-color: #D93C10;
     transition: -fx-background-color 0.4s ease;
+}
+
+.file-chooser-button {
+    -fx-font-weight: 400;
+    -fx-font-size: 15px;
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-text-fill: #606060;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+}
+
+.file-chooser-button:hover {
+    -fx-border-color: #e6481b;
+    -fx-background-color: #e6481b;
+    transition: -fx-background-color 0.3s ease;
+    -fx-text-fill: white;
 }
 
 .error {
@@ -63,4 +82,14 @@ TextField, PasswordField {
     -fx-background-color: transparent;
     -fx-border-width: 0;
     -fx-cursor: hand;
+}
+
+.video-details-container {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+}
+
+.video-details-title, .video-details-label {
+    -fx-font-family: "Poppins SemiBold";
 }
