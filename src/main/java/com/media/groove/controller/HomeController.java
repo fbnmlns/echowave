@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
@@ -45,7 +47,7 @@ public class HomeController {
     public FlowPane allMediaContainer;
 
     @FXML
-    public Label lblUsername;
+    public Circle profilePicture;
 
     public HomeController(StageInitializer stageInitializer, MediaService mediaService, VideoSession videoSession, UserSession userSession) {
         this.stageInitializer = stageInitializer;
@@ -55,9 +57,9 @@ public class HomeController {
     }
 
     public void initialize() {
-        this.lblUsername.setText(this.userSession.getAuthenticatedUser().getUsername());
         this.allMediaContainer.setHgap(this.FLOW_PANE_HGAP_VALUE);
         this.allMediaContainer.setVgap(this.FLOW_PANE_VGAP_VALUE);
+        this.setUserProfilePicture();
         this.loadMedia();
     }
 
@@ -85,17 +87,27 @@ public class HomeController {
         }
     }
 
+    private void setUserProfilePicture() {
+        this.profilePicture.setFill(this.getProfilePicture(this.userSession.getAuthenticatedUser().getProfilePicture()));
+    }
+
     private ImageView getMediaThumbnail(String imagePath) {
         Image image = new Image(new File(imagePath).toURI().toString());
 
         return new ImageView(image);
     }
 
+    private ImagePattern getProfilePicture(String imagePath) {
+        Image image = new Image(new File(imagePath).toURI().toString());
+
+        return new ImagePattern(image);
+    }
+
     private void startPlayingMedia() {
         this.stageInitializer.switchScene(this.mediaPlayerScreenResource);
     }
 
-    public void addNewVideo() {
+    public void addMedia() {
         this.stageInitializer.switchScene(this.addNewVideoScreenResource);
     }
 }

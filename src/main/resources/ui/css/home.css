@@ -1,5 +1,6 @@
 AnchorPane, FlowPane {
     -fx-background-color: white;
+    -fx-font-family: "Poppins Regular";
 }
 
 .media-scroll-pane {
@@ -51,7 +52,7 @@ AnchorPane, FlowPane {
 
 .media-title {
     -fx-text-fill: #0f0f0f;
-    -fx-font-size: 15px;
+    -fx-font-size: 12px;
 }
 
 .username-label {
@@ -59,5 +60,7 @@ AnchorPane, FlowPane {
 }
 
 .add-media-button {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
     -fx-cursor: hand;
 }

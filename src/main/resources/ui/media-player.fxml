@@ -22,7 +22,7 @@
             </HBox.margin>
             <graphic>
                <ImageView fx:id="playbackButtonIcon" fitHeight="17.0" fitWidth="20.0">
-                     <Image url="@assets/pause.png" />
+                     <Image url="@assets/images/pause.png" />
                </ImageView>
             </graphic>
          </Button>
@@ -33,7 +33,7 @@
             <Label>
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="20.0">
-                     <Image url="@assets/volume.png"/>
+                     <Image url="@assets/images/volume.png"/>
                   </ImageView>
                </graphic></Label>
             <Slider fx:id="volumeSlider" max="1.0" prefHeight="13.0" prefWidth="118.0" />

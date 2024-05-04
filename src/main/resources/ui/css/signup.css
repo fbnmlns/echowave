@@ -1,11 +1,12 @@
 AnchorPane {
     -fx-background-color: white;
+    -fx-font-family: "Poppins Regular";
 }
 
 .signup-title {
     -fx-font-size: 30px;
     -fx-text-fill: #2d333a;
-    -fx-font-weight: 900;
+    -fx-font-family: "Poppins SemiBold";
 }
 
 TextField, PasswordField {
