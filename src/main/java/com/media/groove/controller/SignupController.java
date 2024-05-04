@@ -131,7 +131,7 @@ public class SignupController {
 
         if (this.password.getText().isEmpty() || !this.passwordsMatch()) {
             this.password.getStyleClass().remove("input");
-            this.passwordConfirmation.getStyleClass().remove("error");
+            this.passwordConfirmation.getStyleClass().remove("input");
 
             this.password.getStyleClass().add("error");
             this.passwordConfirmation.getStyleClass().add("error");

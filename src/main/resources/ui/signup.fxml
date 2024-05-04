@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -12,38 +13,60 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.SignupController">
     <stylesheets>
-        <URL value="@css/signup.css" />
+        <URL value="@css/forms.css" />
         <URL value="@css/fonts.css" />
     </stylesheets>
-    <VBox layoutX="310.0" layoutY="163.0">
-        <Label fx:id="lblName" prefHeight="17.0" prefWidth="50.0" styleClass="input-label" text="Name*" />
-        <TextField id="name" fx:id="name" styleClass="input" />
-    </VBox>
-    <VBox layoutX="310.0" layoutY="235.0">
-        <Label fx:id="lblLastName" prefHeight="17.0" prefWidth="76.0" text="Last name*" />
-        <TextField fx:id="lastName" styleClass="input" />
-    </VBox>
-    <VBox layoutX="310.0" layoutY="300.0">
-        <Label fx:id="lblUsername" prefHeight="17.0" prefWidth="76.0" text="Username*" />
-        <TextField fx:id="username" styleClass="input" />
-        <Label fx:id="lblUsernameNotAvailable" styleClass="error-text" text="This username isn't available" visible="false" />
-    </VBox>
-    <VBox layoutX="309.0" layoutY="370.0">
-        <Label fx:id="lblPassword" prefHeight="17.0" prefWidth="76.0" text="Password*" />
-        <PasswordField fx:id="password" styleClass="input" />
-    </VBox>
     <Button fx:id="signupButton" layoutX="311.0" layoutY="514.0" mnemonicParsing="false" onAction="#signUp" prefHeight="33.0" prefWidth="149.0" styleClass="signup-button" text="Sign up" />
     <Label layoutX="239.0" layoutY="76.0" prefHeight="46.0" prefWidth="322.0" styleClass="signup-title" text="Create your account" />
-    <VBox layoutX="309.0" layoutY="438.0">
-        <Label fx:id="lblPasswordConfirmation" prefHeight="18.0" prefWidth="150.0" text="Confirm your password*" />
-        <PasswordField fx:id="passwordConfirmation" styleClass="input" />
+    <Label fx:id="lblAccountCreationError" layoutX="187.0" layoutY="553.0" prefHeight="33.0" prefWidth="395.0" styleClass="error-text" text="There was a problem while trying to create your account. Please try again." visible="false" />
+    <Button layoutX="38.0" layoutY="34.0" mnemonicParsing="false" onAction="#goBack" styleClass="go-back-button">
+        <graphic>
+            <ImageView>
+                <Image url="@assets/images/back.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <VBox alignment="TOP_CENTER" layoutX="307.0" layoutY="160.0" prefHeight="314.0" prefWidth="157.0">
+        <VBox>
+            <Label fx:id="lblName" prefHeight="17.0" prefWidth="50.0" styleClass="input-label" text="Name*" />
+            <TextField id="name" fx:id="name" prefHeight="27.0" prefWidth="157.0" styleClass="input">
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </TextField>
+        </VBox>
+        <VBox>
+            <Label fx:id="lblLastName" prefHeight="17.0" prefWidth="76.0" styleClass="input-label" text="Last name*" />
+            <TextField fx:id="lastName" styleClass="input">
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </TextField>
+        </VBox>
+        <VBox prefHeight="44.0">
+            <Label fx:id="lblUsername" prefHeight="17.0" prefWidth="76.0" styleClass="input-label" text="Username*" />
+            <TextField fx:id="username" styleClass="input" />
+            <Label fx:id="lblUsernameNotAvailable" styleClass="error-text" text="This username isn't available" visible="false">
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </Label>
+            <VBox>
+                <Label fx:id="lblPassword" prefHeight="17.0" prefWidth="76.0" styleClass="input-label" text="Password*" />
+                <PasswordField fx:id="password" styleClass="input">
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </PasswordField>
+            </VBox>
+        </VBox>
+        <VBox>
+            <Label id="input-label" fx:id="lblPasswordConfirmation" prefHeight="18.0" prefWidth="150.0" styleClass="input-label" text="Confirm your password*" />
+            <PasswordField fx:id="passwordConfirmation" styleClass="input">
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </PasswordField>
+        </VBox>
     </VBox>
-   <Label fx:id="lblAccountCreationError" layoutX="187.0" layoutY="553.0" prefHeight="33.0" prefWidth="395.0" styleClass="error-text" text="There was a problem while trying to create your account. Please try again." visible="false" />
-   <Button styleClass="go-back-button" layoutX="38.0" layoutY="34.0" mnemonicParsing="false" onAction="#goBack">
-      <graphic>
-          <ImageView>
-              <Image url="@assets/images/back.png"/>
-          </ImageView>
-      </graphic>
-   </Button>
 </AnchorPane>

@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.media.groove.controller.AddVideoController">
     <stylesheets>
-        <URL value="@css/signup.css" />
+        <URL value="@css/forms.css" />
         <URL value="@css/fonts.css" />
     </stylesheets>
     <Button layoutX="311.0" layoutY="514.0" mnemonicParsing="false" onAction="#addVideo" prefHeight="33.0" prefWidth="149.0" styleClass="signup-button" text="UPLOAD" />
