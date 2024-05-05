@@ -19,7 +19,7 @@
         <URL value="@css/fonts.css" />
     </stylesheets>
     <HBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="800.0" styleClass="header">
-      <Button mnemonicParsing="false" onAction="#addMedia" styleClass="add-media-button">
+      <Button mnemonicParsing="false" onAction="#addPost" styleClass="add-media-button">
          <graphic>
               <ImageView>
                   <Image url="@assets/images/add-video.png" />

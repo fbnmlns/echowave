@@ -1,21 +1,21 @@
 package com.media.groove.session;
 
-import com.media.groove.entity.Media;
+import com.media.groove.entity.Post;
 import org.springframework.stereotype.Component;
 
 @Component
 public class VideoSession {
-    private Media currentMedia;
+    private Post currentPost;
 
-    public Media getCurrentVideo() {
-        return currentMedia;
+    public Post getCurrentPost() {
+        return currentPost;
     }
 
-    public void setCurrentVideo(Media currentMedia) {
-        this.currentMedia = currentMedia;
+    public void setCurrentPost(Post currentPost) {
+        this.currentPost = currentPost;
     }
 
-    public void clearCurrentVideo() {
-        this.currentMedia = null;
+    public void clearCurrentPost() {
+        this.currentPost = null;
     }
 }

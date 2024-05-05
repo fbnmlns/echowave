@@ -1,8 +1,8 @@
 package com.media.groove.controller;
 
 import com.media.groove.StageInitializer;
-import com.media.groove.entity.Media;
-import com.media.groove.service.MediaService;
+import com.media.groove.entity.Post;
+import com.media.groove.service.PostService;
 import com.media.groove.session.UserSession;
 import com.media.groove.session.VideoSession;
 import javafx.fxml.FXML;
@@ -32,7 +32,7 @@ public class HomeController {
 
     private final StageInitializer stageInitializer;
 
-    private final MediaService mediaService;
+    private final PostService postService;
 
     private final VideoSession videoSession;
 
@@ -50,7 +50,7 @@ public class HomeController {
     @Value("classpath:/ui/media-player.fxml")
     private Resource mediaPlayerScreenResource;
 
-    @Value("classpath:/ui/add-video.fxml")
+    @Value("classpath:/ui/add-post.fxml")
     private Resource addNewVideoScreenResource;
 
     @Value("classpath:/ui/welcome-page.fxml")
@@ -58,11 +58,11 @@ public class HomeController {
 
     public HomeController(
             StageInitializer stageInitializer,
-            MediaService mediaService,
+            PostService postService,
             VideoSession videoSession,
             UserSession userSession) {
         this.stageInitializer = stageInitializer;
-        this.mediaService = mediaService;
+        this.postService = postService;
         this.videoSession = videoSession;
         this.userSession = userSession;
     }
@@ -74,7 +74,7 @@ public class HomeController {
         this.loadMedia();
     }
 
-    public void addMedia() {
+    public void addPost() {
         this.stageInitializer.switchScene(this.addNewVideoScreenResource);
     }
 
@@ -85,14 +85,14 @@ public class HomeController {
     }
 
     private void loadMedia() {
-        for (Media currMedia : this.mediaService.getAllMediaByCurrentUserId()) {
-            ImageView thumbnail = getMediaThumbnail(currMedia.getThumbnail());
+        for (Post currMedia : this.postService.getAllMediaByCurrentUserId()) {
+            ImageView thumbnail = getVideoThumbnail(currMedia.getThumbnail());
             thumbnail.setFitWidth(this.THUMBNAIL_FIT_WIDTH);
             thumbnail.setFitHeight(this.THUMBNAIL_FIT_HEIGHT);
             thumbnail.getStyleClass().add("media-card");
 
             thumbnail.setOnMouseClicked(event -> {
-                this.videoSession.setCurrentVideo(currMedia);
+                this.videoSession.setCurrentPost(currMedia);
                 this.startPlayingMedia();
             });
 
@@ -112,7 +112,7 @@ public class HomeController {
         this.profilePicture.setFill(this.getProfilePicture(this.userSession.getAuthenticatedUser().getProfilePicture()));
     }
 
-    private ImageView getMediaThumbnail(String imagePath) {
+    private ImageView getVideoThumbnail(String imagePath) {
         Image image = new Image(new File(imagePath).toURI().toString());
 
         return new ImageView(image);
