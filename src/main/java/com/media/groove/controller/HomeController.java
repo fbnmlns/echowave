@@ -50,7 +50,7 @@ public class HomeController {
     @Value("classpath:/ui/media-player.fxml")
     private Resource mediaPlayerScreenResource;
 
-    @Value("classpath:/ui/add-video-form.fxml")
+    @Value("classpath:/ui/add-video.fxml")
     private Resource addNewVideoScreenResource;
 
     @Value("classpath:/ui/welcome-page.fxml")

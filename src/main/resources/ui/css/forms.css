@@ -15,7 +15,8 @@ TextField, PasswordField {
 
 .input {
     -fx-text-fill: #2d333a;
-    -fx-border-color: #c2c8d0;
+    -fx-border-color: #747775;
+    -fx-border-width: 2px;
 }
 
 .input:focused {
@@ -25,12 +26,12 @@ TextField, PasswordField {
 }
 
 .input-label {
+    -fx-text-fill: #444746;
     -fx-font-size: 12px;
-    -fx-font-weight: 400;
+    -fx-font-family: "Poppins Medium";
 }
 
 .signup-button {
-    -fx-font-weight: 500;
     -fx-font-size: 15px;
     -fx-background-color: #e6481b;
     -fx-cursor: hand;
@@ -43,10 +44,29 @@ TextField, PasswordField {
     transition: -fx-background-color 0.4s ease;
 }
 
+.file-chooser-button {
+    -fx-font-weight: 400;
+    -fx-font-size: 15px;
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-text-fill: #444746;
+    -fx-border-color: #747775;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+}
+
+.file-chooser-button:hover {
+    -fx-border-color: #e6481b;
+    -fx-background-color: #e6481b;
+    transition: -fx-background-color 0.3s ease;
+    -fx-text-fill: white;
+}
+
 .error {
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
     -fx-border-color: #dc3030;
+    -fx-border-width: 2px;
 }
 
 .label-error {
@@ -63,4 +83,14 @@ TextField, PasswordField {
     -fx-background-color: transparent;
     -fx-border-width: 0;
     -fx-cursor: hand;
+}
+
+.video-details-container {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 2px;
+    -fx-border-radius: 2px;
+}
+
+.video-details-title, .video-details-label {
+    -fx-font-family: "Poppins Medium";
 }

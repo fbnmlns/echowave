@@ -30,8 +30,8 @@
         <items>
           <MenuItem mnemonicParsing="false" onAction="#signOut" text="Sign out">
                <graphic>
-                   <ImageView>
-                       <Image url="@assets/images/exit.png"/>
+                   <ImageView fitHeight="16.0" fitWidth="16.0">
+                       <Image url="@assets/images/exit.png" />
                    </ImageView>
                </graphic></MenuItem>
         </items>

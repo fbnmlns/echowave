@@ -52,11 +52,8 @@ AnchorPane, FlowPane {
 
 .media-title {
     -fx-text-fill: #0f0f0f;
-    -fx-font-size: 12px;
-}
-
-.username-label {
-    -fx-text-fill: #0f0f0f;
+    -fx-font-size: 14px;
+    -fx-font-family: "Poppins Medium";
 }
 
 .add-media-button, .menu-button {
