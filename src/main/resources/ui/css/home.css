@@ -76,6 +76,7 @@ AnchorPane, FlowPane {
 
 .menu-item:focused {
     -fx-background-color: #f2f2f2;
+    -fx-cursor: hand;
 }
 
 .menu-item:focused .label {
