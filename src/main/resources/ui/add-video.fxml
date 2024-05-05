@@ -65,9 +65,9 @@
             </VBox.margin>
         </Label>
         <HBox prefHeight="17.0" prefWidth="168.0">
-            <Label prefHeight="27.0" prefWidth="112.0" styleClass="video-details-label" text="Video file name:">
+            <Label prefHeight="27.0" prefWidth="105.0" styleClass="video-details-label" text="Video file name:">
                 <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    <Insets bottom="5.0" left="5.0" top="5.0" />
                 </padding>
                 <HBox.margin>
                     <Insets left="5.0" />
@@ -75,7 +75,7 @@
             </Label>
             <Label fx:id="videoFileName" prefHeight="27.0" prefWidth="154.0">
                 <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
                 </padding>
                 <HBox.margin>
                     <Insets right="5.0" />
@@ -83,9 +83,9 @@
             </Label>
         </HBox>
         <HBox prefHeight="17.0" prefWidth="168.0">
-            <Label prefHeight="27.0" prefWidth="158.0" styleClass="video-details-label" text="Thumbail file name:">
+            <Label prefHeight="27.0" prefWidth="149.0" styleClass="video-details-label" text="Thumbail file name:">
                 <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    <Insets bottom="5.0" left="5.0" top="5.0" />
                 </padding>
                 <HBox.margin>
                     <Insets left="5.0" />
@@ -93,7 +93,7 @@
             </Label>
             <Label fx:id="thumbnailFileName" prefHeight="27.0" prefWidth="154.0">
                 <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
                 </padding>
                 <HBox.margin>
                     <Insets right="5.0" />
