@@ -27,7 +27,7 @@
         <VBox layoutX="35.0" layoutY="35.0">
             <Label prefHeight="60.0" prefWidth="264.0" styleClass="home-title" text="Hi," textOverrun="CLIP"/>
             <Label prefHeight="60.0" prefWidth="264.0" styleClass="home-title" text="Welcome to" textOverrun="CLIP"/>
-            <Label prefHeight="60.0" prefWidth="264.0" styleClass="home-title" text="EchoWave" textOverrun="CLIP"/>
+            <Label prefHeight="60.0" prefWidth="264.0" styleClass="home-title-hollow" text="EchoWave" textOverrun="CLIP"/>
         </VBox>
     </Pane>
 </AnchorPane>
