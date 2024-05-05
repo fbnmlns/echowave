@@ -7,12 +7,21 @@ Pane {
 }
 
 .home-title {
-  -fx-font-weight: 400;
   -fx-font-size: 43px;
   -fx-text-alignment: left;
   -fx-text-fill: #d292ff;
   -fx-font-family: "Roboto Mono SemiBold";
   -fx-wrap-text: true;
+}
+
+.home-title-hollow.label .text {
+  -fx-font-size: 50px;
+  -fx-text-alignment: left;
+  -fx-font-family: "Roboto Mono SemiBold";
+  -fx-wrap-text: true;
+  -fx-fill: transparent;
+  -fx-stroke: #d292ff;
+  -fx-stroke-width: 1px;
 }
 
 .main-button {

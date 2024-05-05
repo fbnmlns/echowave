@@ -3,7 +3,7 @@ package com.media.groove.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Media {
+public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,7 +18,7 @@ public class Media {
     @JoinColumn(name="owner_id", nullable=false)
     private User owner;
 
-    public Media() {
+    public Post() {
     }
 
     public Long getId() {

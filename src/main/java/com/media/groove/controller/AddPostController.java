@@ -1,8 +1,8 @@
 package com.media.groove.controller;
 
 import com.media.groove.StageInitializer;
-import com.media.groove.entity.Media;
-import com.media.groove.service.MediaService;
+import com.media.groove.entity.Post;
+import com.media.groove.service.PostService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,10 +14,10 @@ import org.springframework.stereotype.Controller;
 import java.io.File;
 
 @Controller
-public class AddVideoController {
+public class AddPostController {
     private final StageInitializer stageInitializer;
 
-    private final MediaService mediaService;
+    private final PostService postService;
 
     private String videoPath;
 
@@ -47,22 +47,22 @@ public class AddVideoController {
     @Value("classpath:/ui/home.fxml")
     private Resource homeScreenSource;
 
-    public AddVideoController(StageInitializer stageInitializer, MediaService mediaService) {
+    public AddPostController(StageInitializer stageInitializer, PostService postService) {
         this.stageInitializer = stageInitializer;
-        this.mediaService = mediaService;
+        this.postService = postService;
     }
 
-    public void addVideo() {
-        Media newMedia = new Media();
+    public void uploadPost() {
+        Post newPost = new Post();
 
         if (this.mediaInformationIsValid()) {
-            newMedia.setTitle(this.title.getText());
-            newMedia.setFile(this.getVideoPath());
-            newMedia.setThumbnail(this.getThumbnailPath());
+            newPost.setTitle(this.title.getText());
+            newPost.setFile(this.getVideoPath());
+            newPost.setThumbnail(this.getThumbnailPath());
 
-            this.mediaService.createMedia(newMedia);
+            this.postService.createMedia(newPost);
 
-            if (newMedia.getId() != null) {
+            if (newPost.getId() != null) {
                 this.stageInitializer.switchScene(this.homeScreenSource);
 
             } else {

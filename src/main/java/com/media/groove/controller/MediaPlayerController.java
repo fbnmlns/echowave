@@ -82,7 +82,7 @@ public class MediaPlayerController {
     public void initialize() {
         this.mediaPlayer = new MediaPlayer(this.getCurrentMedia());
         this.mediaScreen.setMediaPlayer(mediaPlayer);
-        this.stageInitializer.setStageTitle(this.videoSession.getCurrentVideo().getTitle());
+        this.stageInitializer.setStageTitle(this.videoSession.getCurrentPost().getTitle());
 
         this.playIcon = getImage("src/main/resources/ui/assets/images/play.png");
         this.pauseIcon = getImage("src/main/resources/ui/assets/images/pause.png");
@@ -121,7 +121,7 @@ public class MediaPlayerController {
 
     public void closeMediaPlayer() {
         this.mediaPlayer.stop();
-        this.videoSession.clearCurrentVideo();
+        this.videoSession.clearCurrentPost();
         this.stageInitializer.setStageTitle("Home");
         this.stageInitializer.switchScene(this.homeScreenSource);
     }
@@ -215,6 +215,6 @@ public class MediaPlayerController {
     }
 
     private Media getCurrentMedia() {
-        return new Media(new File(this.videoSession.getCurrentVideo().getFile()).toURI().toString());
+        return new Media(new File(this.videoSession.getCurrentPost().getFile()).toURI().toString());
     }
 }

@@ -23,10 +23,10 @@ public class User {
     private String profilePicture;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
-    private List<Media> media;
+    private List<Post> posts;
 
     public User() {
-        this.media = new ArrayList<>();
+        this.posts = new ArrayList<>();
     }
 
     public Long getId() {
@@ -73,11 +73,11 @@ public class User {
         this.profilePicture = profilePicture;
     }
 
-    public List<Media> getMedia() {
-        return media;
+    public List<Post> getMedia() {
+        return posts;
     }
 
-    public void setMedia(List<Media> media) {
-        this.media = media;
+    public void setMedia(List<Post> posts) {
+        this.posts = posts;
     }
 }
